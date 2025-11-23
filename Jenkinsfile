@@ -33,9 +33,11 @@ pipeline {
         }
         stage('Build Docker Images') {
             steps {
-                script {
-                    sh 'docker build -t $DOCKER_CRED_USR/devops-project-2-frontend:$IMAGE_TAG ./frontend'
-                    sh 'docker build -t $DOCKER_CRED_USR/devops-project-2-backend:$IMAGE_TAG ./backend'
+                timeout(time: 10, unit: 'MINUTES') {
+                    script {
+                        sh 'docker build -t $DOCKER_CRED_USR/devops-project-2-frontend:$IMAGE_TAG ./frontend'
+                        sh 'docker build -t $DOCKER_CRED_USR/devops-project-2-backend:$IMAGE_TAG ./backend'
+                    }
                 }
             }
         }
