@@ -27,7 +27,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 echo 'Running tests...'
-                sh 'pip install pytest flask prometheus_client werkzeug'
+                sh 'pip install --break-system-packages pytest flask prometheus_client werkzeug'
                 sh 'cd backend && pytest'
             }
         }
