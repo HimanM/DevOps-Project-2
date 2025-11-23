@@ -29,7 +29,8 @@ pipeline {
 
                         # Deploy
                         sshpass -p \$VPS_PASS ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${VPS_USER}@${VPS_IP} '
-                            cd ~/devops-project-2
+                            mkdir -p /home/${{ VPS_USER }}/devops-project-2
+                            cd /home/${{ VPS_USER }}/devops-project-2
                             echo "DOCKERHUB_USERNAME=${DOCKERHUB_USERNAME_USR}" > .env
                             docker compose pull
                             docker compose up -d
