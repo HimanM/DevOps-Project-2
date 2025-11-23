@@ -1,25 +1,5 @@
 pipeline {
     agent any
-    environment {
-        DOCKER_CRED = credentials('dockerhub-username')
-        IMAGE_TAG = "latest"
-    }
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-        stage('Code Quality') {
-            steps {
-                echo 'Running linting...'
-                // sh 'cd frontend && npm run lint'
-            }
-        }
-        stage('Unit Tests') {
-            steps {
-                echo 'Running tests...'
-                // sh 'cd backend && pytest'
             }
         }
         stage('Build Docker Images') {
