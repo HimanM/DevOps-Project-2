@@ -25,8 +25,8 @@ export default function JenkinsSetupGuide() {
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
                         className={`flex items-center gap-2 px-6 py-4 text-sm font-medium transition-colors whitespace-nowrap ${activeTab === tab.id
-                                ? "bg-blue-600/10 text-blue-400 border-b-2 border-blue-500"
-                                : "text-gray-400 hover:text-white hover:bg-gray-800/50"
+                            ? "bg-blue-600/10 text-blue-400 border-b-2 border-blue-500"
+                            : "text-gray-400 hover:text-white hover:bg-gray-800/50"
                             }`}
                     >
                         {tab.icon}
@@ -118,7 +118,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword`}
 
                         <div className="rounded-xl overflow-hidden border border-gray-800 shadow-2xl mb-6">
                             <Image
-                                src="/docs/images/jenkins_credentials.png"
+                                src="/images/jenkins_credentials.png"
                                 alt="Jenkins Credentials Configuration"
                                 width={800}
                                 height={400}
@@ -175,7 +175,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword`}
                                 <li><strong>Repo URL:</strong> <code>https://github.com/HimanM/DevOps-Project-2.git</code></li>
                             </ul>
                             <div className="rounded-xl overflow-hidden border border-gray-800">
-                                <Image src="/docs/images/jenkins_config.png" alt="CI Config" width={800} height={400} className="w-full" />
+                                <Image src="/images/jenkins_config.png" alt="CI Config" width={800} height={400} className="w-full" />
                             </div>
                         </div>
 
@@ -190,7 +190,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword`}
                                 <li><strong>Trigger:</strong> Build after other projects are built (DevOps-CI)</li>
                             </ul>
                             <div className="rounded-xl overflow-hidden border border-gray-800">
-                                <Image src="/docs/images/jenkins_cd_config.png" alt="CD Config" width={800} height={400} className="w-full" />
+                                <Image src="/images/jenkins_cd_config.png" alt="CD Config" width={800} height={400} className="w-full" />
                             </div>
                         </div>
 
@@ -204,7 +204,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword`}
                                 <li><strong>Script Path:</strong> <code>Jenkinsfile.initdomain</code></li>
                             </ul>
                             <div className="rounded-xl overflow-hidden border border-gray-800">
-                                <Image src="/docs/images/jenkins_infra_config.png" alt="Infra Config" width={800} height={400} className="w-full" />
+                                <Image src="/images/jenkins_infra_config.png" alt="Infra Config" width={800} height={400} className="w-full" />
                             </div>
                         </div>
                     </div>
