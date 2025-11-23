@@ -20,13 +20,14 @@ pipeline {
         stage('Code Quality') {
             steps {
                 echo 'Running linting...'
-                // sh 'cd frontend && npm run lint'
+                sh 'cd frontend && npm install && npm run lint'
             }
         }
         stage('Unit Tests') {
             steps {
                 echo 'Running tests...'
-                // sh 'cd backend && pytest'
+                sh 'pip install pytest flask prometheus_client werkzeug'
+                sh 'cd backend && pytest'
             }
         }
         stage('Build Docker Images') {
