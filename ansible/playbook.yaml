@@ -35,13 +35,13 @@
     - name: Deploy Nginx configuration
       template:
         src: nginx.conf.j2
-        dest: /etc/nginx/sites-available/default
+        dest: "/etc/nginx/sites-available/{{ domain_name }}"
       notify: Restart Nginx
 
     - name: Enable Nginx configuration
       file:
-        src: /etc/nginx/sites-available/default
-        dest: /etc/nginx/sites-enabled/default
+        src: "/etc/nginx/sites-available/{{ domain_name }}"
+        dest: "/etc/nginx/sites-enabled/{{ domain_name }}"
         state: link
 
     - name: Reload Nginx to apply config
