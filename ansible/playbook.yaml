@@ -38,6 +38,12 @@
         dest: /etc/nginx/sites-available/default
       notify: Restart Nginx
 
+    - name: Enable Nginx configuration
+      file:
+        src: /etc/nginx/sites-available/default
+        dest: /etc/nginx/sites-enabled/default
+        state: link
+
     - name: Reload Nginx to apply config
       service:
         name: nginx
