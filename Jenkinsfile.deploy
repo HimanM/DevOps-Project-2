@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    environment {
+        VPS_IP = credentials('vps-ip')
+        VPS_USER = credentials('vps-user')
+        DOCKERHUB_USERNAME = credentials('dockerhub-username')
+    }
+    stages {
+        stage('Deploy to VPS') {
+            steps {
+                sshagent(['vps-ssh-key']) {
+                    sh """
+                        ssh -o StrictHostKeyChecking=no ${VPS_USER}@${VPS_IP} '
+                            # Create directory if not exists
+                            mkdir -p ~/devops-project
+                            cd ~/devops-project
+                            
+                            # Ensure we have the latest docker-compose.yml
+                            # Assuming the repo is cloned here. If not, you might need to scp it.
+                            # git pull origin main 
+                            
+                            # Create .env file for docker-compose variables
+                            echo "DOCKERHUB_USERNAME=${DOCKERHUB_USERNAME}" > .env
+                            
+                            docker-compose pull
+                            docker-compose up -d
+                        '
+                    """
+                }
+            }
+        }
+    }
+}

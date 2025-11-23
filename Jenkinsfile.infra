@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    environment {
+        VPS_IP = credentials('vps-ip')
+        VPS_USER = credentials('vps-user')
+    }
+    stages {
+        stage('Setup Infrastructure') {
+            steps {
+                sshagent(['vps-ssh-key']) {
+                    sh """
+                        ssh -o StrictHostKeyChecking=no ${VPS_USER}@${VPS_IP} '
+                            # Update and install Docker
+                            sudo apt-get update
+                            sudo apt-get install -y docker.io docker-compose
+                            sudo usermod -aG docker ${VPS_USER}
+                            
+                            # Install Nginx (if needed for reverse proxy outside docker)
+                            sudo apt-get install -y nginx
+                        '
+                    """
+                }
+            }
+        }
+    }
+}
