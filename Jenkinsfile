@@ -1,5 +1,32 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'docker:latest'
+            // Mount the host Docker socket to allow building images
+            // Run as root to access the socket
+            args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
+    environment {
+        DOCKER_CRED = credentials('dockerhub-username')
+        IMAGE_TAG = "latest"
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Code Quality') {
+            steps {
+                echo 'Running linting...'
+                // sh 'cd frontend && npm run lint'
+            }
+        }
+        stage('Unit Tests') {
+            steps {
+                echo 'Running tests...'
+                // sh 'cd backend && pytest'
             }
         }
         stage('Build Docker Images') {
