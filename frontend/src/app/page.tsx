@@ -94,7 +94,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-        <p>© 2025 DevOps Project 2. Built for learning.</p>
+        <p>© 2025 DevOps Project 2. Built for learning by HimanM</p>
       </footer>
     </main>
   );
