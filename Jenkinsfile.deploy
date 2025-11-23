@@ -17,6 +17,13 @@ pipeline {
                 }
                 withCredentials([usernamePassword(credentialsId: 'vps-credentials', usernameVariable: 'VPS_USER', passwordVariable: 'VPS_PASS')]) {
                     sh """
+                        # Copy docker-compose.yml and prometheus.yml to VPS
+                        sshpass -p \$VPS_PASS scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null docker-compose.yml ${VPS_USER}@${VPS_IP}:~/devops-project/docker-compose.yml
+                        
+                        # Create monitoring directory on VPS and copy prometheus config
+                        sshpass -p \$VPS_PASS ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${VPS_USER}@${VPS_IP} 'mkdir -p ~/devops-project/monitoring'
+                        sshpass -p \$VPS_PASS scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null monitoring/prometheus.yml ${VPS_USER}@${VPS_IP}:~/devops-project/monitoring/prometheus.yml
+
                         sshpass -p \$VPS_PASS ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${VPS_USER}@${VPS_IP} '
                             mkdir -p ~/devops-project
                             cd ~/devops-project
