@@ -169,6 +169,8 @@ This project uses a **chained pipeline architecture** with three distinct Jenkin
 
 Follow these steps to install Jenkins on Ubuntu/Debian systems.
 
+> **Important**: The Jenkins machine must have **Node.js (npm)** and **Python (pip)** installed to run frontend linting and backend tests in the CI pipeline. These are installed in Steps 2 and 3 below.
+
 #### Step 1: Install Java
 
 Jenkins requires Java Runtime Environment. OpenJDK 17 is recommended.

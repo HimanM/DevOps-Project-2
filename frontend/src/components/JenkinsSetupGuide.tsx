@@ -44,6 +44,13 @@ export default function JenkinsSetupGuide() {
                             To run this project, you need a server (VPS or Local) with the following installed.
                         </p>
 
+                        <div className="p-4 rounded-lg border border-yellow-600/30 bg-yellow-500/10">
+                            <p className="text-yellow-400 text-sm">
+                                <strong>Important:</strong> The Jenkins machine must have <strong>Node.js (npm)</strong> and <strong>Python (pip)</strong> installed
+                                to run frontend linting and backend tests in the CI pipeline.
+                            </p>
+                        </div>
+
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
                                 <h4 className="text-lg font-semibold text-blue-400 mb-2">Step 1: Install Java</h4>
