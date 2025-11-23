@@ -38,6 +38,11 @@
         dest: /etc/nginx/sites-available/default
       notify: Restart Nginx
 
+    - name: Reload Nginx to apply config
+      service:
+        name: nginx
+        state: reloaded
+
     - name: Obtain SSL certificate
       command: certbot --nginx -d {{ domain_name }} --non-interactive --agree-tos -m admin@{{ domain_name }}
       ignore_errors: yes
