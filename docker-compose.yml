@@ -3,7 +3,7 @@ services:
     build: ./frontend
     image: ${DOCKERHUB_USERNAME}/devops-frontend:latest
     ports:
-      - "3000:3000"
+      - "57002:3000"
     networks:
       - frontend_net
     environment:

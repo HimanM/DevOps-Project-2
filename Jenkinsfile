@@ -47,4 +47,9 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            build job: 'DevOps-CD', wait: false
+        }
+    }
 }

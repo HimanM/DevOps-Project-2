@@ -34,7 +34,7 @@ The pipeline builds Docker images and deploys via SSH using password.
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg sshpass
 # Install Docker (Standard Docker installation)
-sudo apt-get install docker.io docker compose
+sudo apt-get install docker.io docker-compose
 ```
 
 ### Important: Grant Jenkins Docker Permissions
