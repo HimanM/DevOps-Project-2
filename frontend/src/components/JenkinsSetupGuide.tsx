@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import TerminalBlock from "./TerminalBlock";
-import { FaJava, FaDocker, FaJenkins, FaKey, FaCogs, FaPlay } from "react-icons/fa";
+import { FaJava, FaJenkins, FaKey, FaCogs, FaPlay } from "react-icons/fa";
 import Image from "next/image";
 
 const tabs = [
@@ -114,6 +114,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword`}
                             {[
                                 { name: "Docker", desc: "For building and pushing images." },
                                 { name: "Docker Pipeline", desc: "Scripting Docker commands in Jenkinsfile." },
+                                { name: "NodeJS", desc: "Provides Node.js and npm for frontend linting." },
                                 { name: "Pipeline: Stage View", desc: "Visualizing the workflow stages." },
                                 { name: "Ansible", desc: "For infrastructure automation (optional if using shell)." },
                             ].map((plugin, i) => (

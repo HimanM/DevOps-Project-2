@@ -1,12 +1,13 @@
 pipeline {
-    agent {
-        docker {
-            image 'docker:latest'
-            // Mount the host Docker socket to allow building images
-            // Run as root to access the socket
-            args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    // agent {
+    //     docker {
+    //         image 'docker:latest'
+    //         // Mount the host Docker socket to allow building images
+    //         // Run as root to access the socket
+    //         args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
+    //     }
+    // }
+    agent any
     environment {
         DOCKER_CRED = credentials('dockerhub-username')
         IMAGE_TAG = "latest"

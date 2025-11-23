@@ -246,6 +246,7 @@ Navigate to **Manage Jenkins > Plugins > Available Plugins** and install the fol
 |------------|---------|
 | **Docker** | Build and manage Docker containers |
 | **Docker Pipeline** | Use Docker commands in pipeline scripts |
+| **NodeJS** | Provides Node.js and npm for frontend linting |
 | **Pipeline: Stage View** | Visualize pipeline execution stages |
 | **Ansible** | Execute Ansible playbooks (optional) |
 

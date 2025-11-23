@@ -1,10 +1,11 @@
 import BackendStatus from "@/components/BackendStatus";
 import JenkinsSetupGuide from "@/components/JenkinsSetupGuide";
 import JenkinsWorkflow from "@/components/JenkinsWorkflow";
-import TerminalBlock from "@/components/TerminalBlock";
-import { FaGithub, FaJenkins, FaDocker, FaPython, FaReact, FaGit } from "react-icons/fa";
+import { FaGithub, FaJenkins, FaDocker, FaPython, FaReact } from "react-icons/fa";
 import { SiAnsible } from "react-icons/si";
-import Image from "next/image";
+
+// Unused variable for testing Jenkins linting
+const jenkins_test_unused_var = "This variable is intentionally unused for testing";
 
 export default function Home() {
   return (
