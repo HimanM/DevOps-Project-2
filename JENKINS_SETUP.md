@@ -51,6 +51,12 @@ Go to **Manage Jenkins > Credentials > System > Global credentials**.
 - **Password**: Your VPS password.
 - **Description**: VPS Login Credentials
 
+### VPS IP Address
+- **Kind**: Secret text
+- **ID**: `vps-ip`
+- **Secret**: The IP address of your VPS (e.g., `192.168.1.100`)
+- **Description**: VPS IP Address
+
 ## 6. Create Pipelines
 1.  **New Item** > **Pipeline**.
 2.  **Definition**: Pipeline script from SCM.
